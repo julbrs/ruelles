@@ -5,9 +5,12 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Tailwind`,
-    description: `Gatsby starter styled with Tailwind`,
-    author: `@taylorbryant`,
+    title: `Ruelles`,
+    description: `La liste des ruelles de Montréal`,
+    author: `@sidoineorg`,
+    social: {
+      github: 'https://github.com/bobman38/ruelles'
+    }
   },
   plugins: [
     `gatsby-plugin-eslint`,

@@ -3,20 +3,19 @@ import React from "react";
 import Layout from "../layouts/layout";
 import SEO from "../components/seo";
 
-import BackLaneMap from "../components/backlane/map"
+import BackLaneList from "../components/backlane/list"
 
 import backlanes from "../../data/backlanes"
 
-
-function IndexPage() {
+function ListPage() {
   return (
     <Layout>
       <SEO
-        title="Acceuil"
+        title="Liste des ruelles"
       />
-      <BackLaneMap backlanes={backlanes} />
+      <BackLaneList backlanes={backlanes} />
     </Layout>
   );
 }
 
-export default IndexPage;
+export default ListPage;
