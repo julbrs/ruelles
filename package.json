@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-tailwind",
-  "description": "Gatsby starter styled with Tailwind",
-  "version": "4.0.0",
-  "author": "Taylor Bryant <taylor@bryant.io>",
+  "name": "ruelles",
+  "description": "Les ruelles de Montreal",
+  "version": "1.0.0",
+  "author": "Julien Bras <julien@sidoine.org>",
   "dependencies": {
     "gatsby": "2.21.22",
     "gatsby-plugin-manifest": "2.4.2",
@@ -17,12 +17,6 @@
     "react-helmet": "6.0.0",
     "react-mapbox-gl": "^4.8.3"
   },
-  "keywords": [
-    "gatsby",
-    "tailwind",
-    "tailwindcss",
-    "purgecss"
-  ],
   "license": "MIT",
   "scripts": {
     "analyze:lint": "eslint --ext .jsx --ext .js .",
@@ -33,8 +27,6 @@
     "fix": "npm run fix:lint && npm run fix:prettier",
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "dev": "npm run develop",
-    "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
@@ -54,9 +46,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/taylorbryant/gatsby-starter-tailwind"
+    "url": "https://github.com/sidoineorg/ruelles"
   },
   "bugs": {
-    "url": "https://github.com/taylorbryant/gatsby-starter-tailwind/issues"
+    "url": "https://github.com/sidoineorg/ruelles/issues"
   }
 }

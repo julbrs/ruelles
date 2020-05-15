@@ -18,17 +18,22 @@ const polygonPaint = {
   'fill-opacity': 0.7
 }
 
+let Map = false
 
-const Map = ReactMapboxGl({
-  accessToken:
-    'pk.eyJ1IjoianVsaWVuYnJhcyIsImEiOiJja2E0czQyb3cwOXN3M3BtYmRsOHo4aDNjIn0.qkQ144JPcqHqm-h6ZqN-zg'
-});
+// Gatsby specific config
+if (typeof window !== `undefined`) {
+  Map = ReactMapboxGl({
+    accessToken:
+      'pk.eyJ1IjoianVsaWVuYnJhcyIsImEiOiJja2E0czQyb3cwOXN3M3BtYmRsOHo4aDNjIn0.qkQ144JPcqHqm-h6ZqN-zg'
+  })
+}
 
 const BackLaneMap = props => {
     const {backlanes} = props
 
     return (
-      <Map
+      <>
+      {Map && <Map
         style="mapbox://styles/mapbox/streets-v8"
         center={{
           lat: 45.543964,
@@ -59,6 +64,8 @@ const BackLaneMap = props => {
         </Layer>
         <ZoomControl />
       </Map>
+      }
+      </>
       )
 }
 
