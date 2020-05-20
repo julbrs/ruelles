@@ -1,22 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types';
-import ReactMapboxGl, { Layer, Feature, ZoomControl, Image } from 'react-mapbox-gl';
-import pinGreen from "../../images/pin-green.png";
-// import pinBlue from "../../images/pin-light-blue.png";
-
-const AllShapesPolygonCoords = [
-  [
-    [-73.584094, 45.548877],
-    [-73.583708, 45.549395],
-    [-73.581128, 45.548617],
-    [-73.58145, 45.548065],
-  ]
-]
-
-const polygonPaint = {
-  'fill-color': '#6F788A',
-  'fill-opacity': 0.7
-}
+import React, {useState} from 'react'
+import PropTypes from 'prop-types'
+import ReactMapboxGl, { Layer, Feature, ZoomControl, Image } from 'react-mapbox-gl'
+import { getCenter } from 'geolib'
+import StyledPopup from './map-popup'
+import pinGreen from "../../images/pin-green.png"
+import pinBlue from "../../images/pin-light-blue.png"
+import pinYellow from "../../images/pin-yellow.png"
 
 let Map = false
 
@@ -28,45 +17,129 @@ if (typeof window !== `undefined`) {
   })
 }
 
-const BackLaneMap = props => {
-    const {backlanes} = props
+const toGeoJson = (obj) => {
+  if(obj.latitude) {
+    return [obj.longitude, obj.latitude]
+  }
+  else {
+    return [obj.lng, obj.lat]
+  }
+}
 
-    return (
-      <>
-      {Map && <Map
-        style="mapbox://styles/mapbox/streets-v8"
-        center={{
-          lat: 45.543964,
-          lng: -73.590148
+const BackLaneMap = props => {
+  const [backlane, setBackLane] = useState(null);
+  const [center, setCenter] = useState([-73.590148, 45.543964]);
+  const {backlanes} = props
+
+  const handleClick = (backlane) => {
+    setBackLane(backlane)
+    setCenter(backlane.frontmatter.geojson)
+  }
+
+  const switchCursor = (evt, bool) => {
+    if(bool) {
+      evt.map.getCanvas().style.cursor = 'pointer'
+    }
+    else {
+      evt.map.getCanvas().style.cursor = ''
+    }
+  }
+
+  const blTransform = (backlane) => {
+    if(backlane.frontmatter.position) {
+      backlane.frontmatter.geojson = toGeoJson(backlane.frontmatter.position)
+    }
+    if(backlane.frontmatter.fill) {
+      backlane.frontmatter.geojson = toGeoJson(getCenter(backlane.frontmatter.fill))
+    }
+    return backlane
+  }
+
+  return (
+    <>
+    {Map && <Map
+      style="mapbox://styles/mapbox/light-v8"
+      center={center}
+      containerStyle={{
+        height: '80vh',
+        width: '100%'
       }}
-        containerStyle={{
-          height: '80vh',
-          width: '100%'
-        }}
-      >
-        <Image id='pinGreen' url={pinGreen} />
-        {backlanes.map(backlane => (
-          <Layer key={backlane.id} type="symbol" layout={{
-              'icon-image': 'pinGreen'
-              }}
-             >
-            <Feature 
-              coordinates={[backlane.position.lng, backlane.position.lat]}
-              onClick={() => {
-                alert('bla')
-              }}
-              />
-          </Layer>
+      onClick={(map, evt) =>{
+        console.log(evt.lngLat)
+        setBackLane(null)
+      }}
+    >
+      
+      <Image id='pin-green' url={pinGreen}/>
+      <Image id='pinBlue' url={pinBlue} />
+      <Image id='pinYellow' url={pinYellow} />
+
+      <Layer  type="symbol" layout={{
+        'icon-image': 'pinYellow',
+        'icon-size': 0.50
+        }}>
+          {/* Print warning backlanes */}
+        {backlanes
+          .map(e => e.node)
+          .filter(e => e.frontmatter.type == 'warning')
+          .map(blTransform)
+          .map(backlane => (
+          <Feature key={backlane.id}
+            coordinates={backlane.frontmatter.geojson}
+            onMouseEnter={(evt) => switchCursor(evt, true)}
+            onMouseLeave={(evt) => switchCursor(evt, false)}
+            onClick={() => handleClick(backlane)}
+            />
         ))}
-        {/* test */}
-        <Layer type="fill" paint={polygonPaint}>
-          <Feature coordinates={AllShapesPolygonCoords} />
-        </Layer>
-        <ZoomControl />
-      </Map>
-      }
-      </>
-      )
+      </Layer>
+
+      <Layer  type="symbol" layout={{
+        'icon-image': 'pin-green',
+        'icon-size': 0.50
+        }}>
+          {/* Print green backlanes */}
+        {backlanes
+          .map(e => e.node)
+          .filter(e => e.frontmatter.type == 'ruelle_verte')
+          .map(blTransform)
+          .map(backlane => (
+          <Feature key={backlane.id}
+            coordinates={backlane.frontmatter.geojson}
+            // onMouseEnter={() => map.getCanvas().style.cursor = 'pointer'}
+            // onMouseLeave={() => map.getCanvas().style.cursor = ''}
+            onClick={() => handleClick(backlane)}
+            />
+        ))}
+      </Layer>
+
+      <Layer  type="symbol" layout={{
+        'icon-image': 'pinBlue',
+        'icon-size': 0.50
+        }}>
+          {/* Print blue backlanes */}
+        {backlanes
+          .map(e => e.node)
+          .filter(e => e.frontmatter.type == 'ruelle')
+          .map(blTransform)
+          .map(backlane => (
+          <Feature key={backlane.id}
+            coordinates={backlane.frontmatter.geojson}
+            // onMouseEnter={() => map.getCanvas().style.cursor = 'pointer'}
+            // onMouseLeave={() => map.getCanvas().style.cursor = ''}
+            onClick={() => handleClick(backlane)}
+            />
+        ))}
+      </Layer>
+
+      {/* handle popup when fill */}
+      {backlane && (
+        <StyledPopup backlane={backlane} />
+      )}
+      <ZoomControl />
+    </Map>
+    }
+    </>
+    )
 }
 
 BackLaneMap.propTypes = {

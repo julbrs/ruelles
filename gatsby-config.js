@@ -24,7 +24,7 @@ module.exports = {
         background_color: fullConfig.theme.colors.white,
         theme_color: fullConfig.theme.colors.teal["400"],
         display: `minimal-ui`,
-        icon: `src/images/tailwind-icon.png`,
+        icon: `src/images/pin-green.png`,
       },
     },
     {
@@ -40,5 +40,29 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    // read files
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `backlanes`,
+        path: `${__dirname}/content/backlanes`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 620,
+            },
+          },
+        ],
+      },
+    },
+    `gatsby-plugin-slug`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
   ],
 };
