@@ -35,6 +35,10 @@ function Footer() {
           Liste des ruelles
         </Link>
 
+        <Link to="/district/rosemont">
+          Ruelles vertes de Rosemont
+        </Link>
+
         <p>
           <a
             className="font-bold no-underline"

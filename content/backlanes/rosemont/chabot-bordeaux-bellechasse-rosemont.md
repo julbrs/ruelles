@@ -1,5 +1,6 @@
 ---
-title: 'Bordeaux, Chabot, Rosemont, Bellechasse'
+title: 'Chabot, Bordeaux, Bellechasse, Rosemont'
+date: '2015'
 type: ruelle_verte
 district: 'Rosemont'
 position: {

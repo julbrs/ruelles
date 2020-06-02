@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Popup } from 'react-mapbox-gl'
 import Img from 'gatsby-image'
@@ -7,36 +7,11 @@ import Img from 'gatsby-image'
 const StyledPopup = (props) => {
     const {backlane} = props
 
-    const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "default.png" }) {
-        childImageSharp {
-            fixed(width: 192, height: 128) {
-                ...GatsbyImageSharpFixed
-            }
-        }
-      }
-    }
-  `)
-
-    let image
-
-    if(backlane.frontmatter.cover) {
-        image = (
-            <Img fixed={backlane.frontmatter.cover.childImageSharp.fixed} />
-        )
-    }
-    else {
-        image = (
-            <Img fixed={data.file.childImageSharp.fixed} />
-        )
-    }
-
     return (
         <Popup key={`popup-${backlane.id}`} coordinates={backlane.frontmatter.geojson}>
             <div className="w-48">
                 <Link to={backlane.fields.slug}>
-                    {image}
+                    <Img fixed={backlane.image.childImageSharp.fixed} />
                     <div className="px-2 py-2">
                         <div className="text-gray-700 font-bold text-sm">{backlane.frontmatter.title}</div>
                     </div>

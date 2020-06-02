@@ -6,14 +6,19 @@ import Layout from "../layouts/layout"
 import SEO from "../components/seo"
 
 import BackLaneMap from '../components/backlane/map'
+import BackLaneStat from '../components/backlane/stat'
 
 const IndexPage = ({data}) => {
+  const {
+    map
+  } = data
   return (
     <Layout>
       <SEO
         title="Acceuil"
       />
-      <BackLaneMap backlanes={data.allMarkdownRemark.edges} />
+      <BackLaneMap backlanes={map.edges} />
+      <BackLaneStat data={data}/>
     </Layout>
   );
 }
@@ -24,10 +29,17 @@ IndexPage.propTypes = {
 
 export const indexQuery = graphql`
   query {
-    allMarkdownRemark {
+    map:allMarkdownRemark {
       edges {
         node {
           id
+          image {
+            childImageSharp {
+              fixed(width: 192, height: 128) {
+                ...GatsbyImageSharpFixed
+              }
+            } 
+          }
           fields {
             slug
           }
@@ -43,16 +55,32 @@ export const indexQuery = graphql`
               lat
               lng
             }
-            cover {
-              childImageSharp {
-                fixed(width: 192, height: 128) {
-                  ...GatsbyImageSharpFixed
-                }
-              } 
-            }
           }
         }
       }
+    }
+    all:allMarkdownRemark {
+      totalCount
+      district: group(field:frontmatter___district) {
+        fieldValue
+        totalCount
+      }
+      date: group(field:frontmatter___date) {
+        fieldValue
+        totalCount
+      }
+    }
+    green:allMarkdownRemark(filter: {frontmatter: {type: {eq: "ruelle_verte"}}}) {
+      totalCount
+    }
+    warning:allMarkdownRemark(filter: {frontmatter: {type: {eq: "warning"}}}) {
+      totalCount
+    }
+    nopic:allMarkdownRemark(filter: {image: {base: {eq: "default.png"}}}) {
+      totalCount
+    }
+    nodate:allMarkdownRemark(filter: {frontmatter: {date: {eq: "?"}}}) {
+      totalCount
     }
   }
 `

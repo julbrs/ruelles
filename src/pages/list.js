@@ -13,7 +13,7 @@ const ListPage = ({data}) => {
       <SEO
         title="Liste des ruelles"
       />
-      <BackLaneList backlanes={data.allMarkdownRemark.edges} />
+      <BackLaneList backlanes={data.allMarkdownRemark.nodes} />
     </Layout>
   );
 }
@@ -25,16 +25,14 @@ ListPage.propTypes = {
 export const listQuery = graphql`
   query {
     allMarkdownRemark {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            date
-            title
-          }
+      nodes {
+        id
+        fields {
+          slug
+        }
+        frontmatter {
+          date
+          title
         }
       }
     }

@@ -69,14 +69,14 @@ const BackLaneMap = props => {
         setBackLane(null)
       }}
     >
-      
       <Image id='pin-green' url={pinGreen}/>
       <Image id='pinBlue' url={pinBlue} />
       <Image id='pinYellow' url={pinYellow} />
 
       <Layer  type="symbol" layout={{
         'icon-image': 'pinYellow',
-        'icon-size': 0.50
+        'icon-size': 0.75,
+        'icon-allow-overlap': true
         }}>
           {/* Print warning backlanes */}
         {backlanes
@@ -95,7 +95,8 @@ const BackLaneMap = props => {
 
       <Layer  type="symbol" layout={{
         'icon-image': 'pin-green',
-        'icon-size': 0.50
+        'icon-size': 0.75,
+        'icon-allow-overlap': true
         }}>
           {/* Print green backlanes */}
         {backlanes
@@ -105,8 +106,8 @@ const BackLaneMap = props => {
           .map(backlane => (
           <Feature key={backlane.id}
             coordinates={backlane.frontmatter.geojson}
-            // onMouseEnter={() => map.getCanvas().style.cursor = 'pointer'}
-            // onMouseLeave={() => map.getCanvas().style.cursor = ''}
+            onMouseEnter={(evt) => switchCursor(evt, true)}
+            onMouseLeave={(evt) => switchCursor(evt, false)}
             onClick={() => handleClick(backlane)}
             />
         ))}
@@ -114,7 +115,8 @@ const BackLaneMap = props => {
 
       <Layer  type="symbol" layout={{
         'icon-image': 'pinBlue',
-        'icon-size': 0.50
+        'icon-size': 0.75,
+        'icon-allow-overlap': true
         }}>
           {/* Print blue backlanes */}
         {backlanes
@@ -124,14 +126,14 @@ const BackLaneMap = props => {
           .map(backlane => (
           <Feature key={backlane.id}
             coordinates={backlane.frontmatter.geojson}
-            // onMouseEnter={() => map.getCanvas().style.cursor = 'pointer'}
-            // onMouseLeave={() => map.getCanvas().style.cursor = ''}
+            onMouseEnter={(evt) => switchCursor(evt, true)}
+            onMouseLeave={(evt) => switchCursor(evt, false)}
             onClick={() => handleClick(backlane)}
             />
         ))}
       </Layer>
 
-      {/* handle popup when fill */}
+      {/* handle popup */}
       {backlane && (
         <StyledPopup backlane={backlane} />
       )}

@@ -8,7 +8,6 @@ const BackLaneList = props => {
     return (
         <div className="container lg:px-24">
           {backlanes
-            .map(e => e.node)
             .map(backlane => (
             <div  key={backlane.id}>
               <div className="flex flex-wrap">
