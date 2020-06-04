@@ -1,7 +1,7 @@
 ---
 title:  Bourbonnière D'orléans
 type: warning
-district: 'Rosemont'
+district: rosemont
 position: { lng: -73.5631087548396, lat: 45.554770078969085 }
 ---
 

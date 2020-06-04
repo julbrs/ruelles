@@ -2,7 +2,7 @@
 title:  30e avenue/31e avenue & St Zotique/Bélanger
 date: '1981-1986'
 type: ruelle_verte
-district: 'Rosemont'
+district: rosemont
 position: { lng: -73.58119501729662, lat: 45.56925837904504 }
 ---
 

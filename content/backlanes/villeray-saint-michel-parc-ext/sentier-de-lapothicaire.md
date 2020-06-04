@@ -2,7 +2,7 @@
 title: Le sentier de l'apothicaire
 type: ruelle_verte
 date: '2015'
-district: 'Villeray Saint-Michel Parc Ext'
+district: villeray-saint-michel-parc-ext
 position: { lng: -73.60350888060223, lat: 45.553881410004436 }
 ---
 

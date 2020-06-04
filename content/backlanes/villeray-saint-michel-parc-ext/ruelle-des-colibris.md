@@ -2,7 +2,7 @@
 title: Ruelle des Colibris
 type: ruelle
 date: 'en cours'
-district: 'Villeray Saint-Michel Parc Ext'
+district: villeray-saint-michel-parc-ext
 position: { lng: -73.6030300559102, lat: 45.55452411697999 }
 ---
 

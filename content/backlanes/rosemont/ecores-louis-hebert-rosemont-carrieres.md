@@ -2,7 +2,7 @@
 date: '2015'
 title: 'des Écores - Louis-Hébert - Rosemont - des Carrières'
 type: ruelle_verte
-district: 'Rosemont'
+district: rosemont
 position: { lng: -73.58648590761935, lat: 45.54513421834727 }
 ---
 

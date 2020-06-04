@@ -2,7 +2,7 @@
 title: Cartier Chabot & Dandurand/des Carrières
 date: '1981-1986'
 type: ruelle_verte
-district: 'Rosemont'
+district: rosemont
 position: { lng: -73.58691528914744, lat: 45.539986029648645 }
 ---
 

@@ -2,7 +2,7 @@
 title:  23e avenue/24e avenue & Beaubien/St-Zotique
 date: '1981-1986'
 type: warning
-district: 'Rosemont'
+district: rosemont
 position: { lng: -73.58089432286475, lat: 45.5641412928359 }
 ---
 

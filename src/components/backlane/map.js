@@ -57,13 +57,9 @@ const BackLaneMap = props => {
 
   return (
     <>
-    {Map && <Map
+    {Map && <Map className="h-screen w-full"
       style="mapbox://styles/mapbox/light-v8"
       center={center}
-      containerStyle={{
-        height: '80vh',
-        width: '100%'
-      }}
       onClick={(map, evt) =>{
         console.log(evt.lngLat)
         setBackLane(null)

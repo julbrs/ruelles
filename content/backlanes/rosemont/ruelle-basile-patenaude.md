@@ -2,7 +2,7 @@
 title: Ruelle du jardin communautaire Basile-Patenaude 
 date: '2016'
 type: ruelle_verte
-district: 'Rosemont'
+district: rosemont
 position: { lng: -73.57809697965811, lat: 45.54454518164934 }
 ---
 

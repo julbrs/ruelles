@@ -2,7 +2,7 @@
 date: '2016'
 title: 'Marquette - Papineau - Rosemont - Fleurimont'
 type: ruelle_verte
-district: 'Rosemont'
+district: rosemont
 position: { lng: -73.5913088771929, lat: 45.54022651792985 }
 ---
 
