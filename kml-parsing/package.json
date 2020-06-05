@@ -1,0 +1,14 @@
+{
+  "name": "kml-parsing",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "geolib": "^3.3.1",
+    "parse-kml": "^1.0.1",
+    "slugify": "^1.4.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}

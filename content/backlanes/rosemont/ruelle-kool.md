@@ -18,4 +18,5 @@ _Visitée le 2020-06-02_
 
 
 Revue de presse:
-* [Une ruelle verte et « kool », Journal Métro, 16 avril 2012 ](https://journalmetro.com/actualites-rosemont-la-petite-patrie/639094/une-ruelle-verte-et-kool/)
+* [Une ruelle verte et « kool », Journal Métro, 16 avril 2012](https://journalmetro.com/actualites-rosemont-la-petite-patrie/639094/une-ruelle-verte-et-kool/)
+* [Karaoké sobre, Journal Métro, 14 novembre 2011](https://journalmetro.com/actualites-rosemont-la-petite-patrie/636992/karaoke-sobre/)

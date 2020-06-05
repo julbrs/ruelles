@@ -1,17 +1,27 @@
+# Ruelles
 
+Un site pour référencer les ruelles remarquables de la ville de Montréal : les ruelles vertes mais pas uniquement.
+
+# Pour développer sur ce site ?
+
+Il est nécessaire d'installer [gatsbyjs](https://www.gatsbyjs.org/) au préalable:
 
 ```
 yarn install
 yarn develop
 ```
 
-Merci
+# Les sources ?
+
+Le fichier `districts.json` provient d'[ici](https://www.donneesquebec.ca/recherche/fr/dataset/vmtl-polygones-arrondissements).
+
+J'ai utilisé les sources génériques ci-dessous
 
 * [Faites comme chez vous](https://faitescommechezvous.org/) pour la liste des ruelles vertes de l'arrondissement Rosemont-Petite Patrie
 * [Wikipedia: Ruelle verte](https://fr.wikipedia.org/wiki/Ruelle_verte) pour la liste partielle des ruelles vertes de tout Montréal, avec des dates
-* [Ecoquartier Ruelles Vertes](https://www.ruellesvertesdemontreal.ca/) pour la liste exaustive des ruelles vertes de Montréal, avec quelques dates.
+* [Ecoquartier Ruelles Vertes](https://www.ruellesvertesdemontreal.ca/) contient une carte google map générale des ruelles avec un certain détail.
 
-
+Puis ensuite j'ai trouvé des documents précis dans certains arrondissements:
 
 Rosemont par année:
 - [avant 2011](http://ville.montreal.qc.ca/pls/portal/docs/PAGE/ARROND_RPP_FR/MEDIA/DOCUMENTS/DOCUMENT7.PDF) pas de sources trouvées, on s'appuie sur les documents pdf de 2017 à 2019. 7 ruelles
@@ -28,4 +38,7 @@ Rosemont par année:
 
 
 TODO
-- trajets https://fairemtl.ca/fr/parcours-ruelles-vertes-actives/content/deux-rallyes-decouvertes-dans-le-sud-ouest
+- proposer des itinéraires https://fairemtl.ca/fr/parcours-ruelles-vertes-actives/content/deux-rallyes-decouvertes-dans-le-sud-ouest
+- améliorer la fiche ruelle
+- ajouter un système de notation des ruelles
+- mettre en avant certaines ruelles basé sur la notation
