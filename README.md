@@ -13,7 +13,7 @@ yarn develop
 
 # Les sources ?
 
-Le fichier `districts.json` provient d'[ici](https://www.donneesquebec.ca/recherche/fr/dataset/vmtl-polygones-arrondissements).
+Le fichier `districts.json` provient des[données ouvertes de Montréal](https://www.donneesquebec.ca/recherche/fr/dataset/vmtl-polygones-arrondissements).
 
 J'ai utilisé les sources génériques ci-dessous
 

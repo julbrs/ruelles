@@ -7,3 +7,5 @@ fill: [{"lat":45.534715,"lng":-73.60427},{"lat":45.53541,"lng":-73.603728},{"lat
 ---
 
 Ruelle hors mandat dans le cadre du PACC (Plan d'action contre les changements climatiques) - projet Corridor vert, en collaboration avec l'Institut National de Santé Publique du Québec (INSPQ).
+
+_Visitée le 2020-06-06_

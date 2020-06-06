@@ -5,3 +5,6 @@ type: ruelle_verte
 district: rosemont
 position: { lng: -73.59889337181828, lat: 45.53819659470855 }
 ---
+
+
+_Visitée le 2020-06-06_
