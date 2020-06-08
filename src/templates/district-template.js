@@ -20,6 +20,7 @@ const DistrictTemplate = ({data}) => {
       <SEO
         title="Liste des ruelles vertes de Rosemont"
       />
+      <article className="max-w-4xl py-4 mx-auto md:px-4 md:py-8">
       <h1>Liste des <strong>{totalCount}</strong> ruelles vertes de Rosemont</h1>
       {group
         .map(date => (
@@ -29,6 +30,7 @@ const DistrictTemplate = ({data}) => {
             <BackLaneList backlanes={date.nodes} />
           </div>
         ))}
+      </article>
     </Layout>
   )
 }

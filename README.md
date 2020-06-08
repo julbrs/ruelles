@@ -42,3 +42,5 @@ TODO
 - améliorer la fiche ruelle
 - ajouter un système de notation des ruelles
 - mettre en avant certaines ruelles basé sur la notation
+- mettre en avant les ruelles sans photos
+- ameliorer la carte

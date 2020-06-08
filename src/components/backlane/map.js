@@ -13,7 +13,9 @@ let Map = false
 if (typeof window !== `undefined`) {
   Map = ReactMapboxGl({
     accessToken:
-      'pk.eyJ1IjoianVsaWVuYnJhcyIsImEiOiJja2E0czQyb3cwOXN3M3BtYmRsOHo4aDNjIn0.qkQ144JPcqHqm-h6ZqN-zg'
+      'pk.eyJ1IjoianVsaWVuYnJhcyIsImEiOiJja2E0czQyb3cwOXN3M3BtYmRsOHo4aDNjIn0.qkQ144JPcqHqm-h6ZqN-zg',
+    scrollZoom: false,
+    dragRotate: false,
   })
 }
 

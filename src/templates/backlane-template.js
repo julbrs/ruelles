@@ -16,7 +16,8 @@ const BackLaneTemplate = ({data}) => {
       <SEO
         title={frontmatter.title}
       />
-      <Img className="h-78 mb-8" fluid={image.childImageSharp.fluid} />
+      <article className="max-w-4xl py-4 mx-auto md:px-4 md:py-8">
+      <Img className="h-48 mb-8" fluid={image.childImageSharp.fluid} />
       <h1 className="text-2xl text-green-700 font-bold leading-snug">
       {frontmatter.title}
       </h1>
@@ -26,6 +27,7 @@ const BackLaneTemplate = ({data}) => {
           className="backlane-content markdown"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+      </article>
     </Layout>
   )
 }
