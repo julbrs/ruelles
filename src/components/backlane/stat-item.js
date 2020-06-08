@@ -17,7 +17,7 @@ const StatItem = props => {
 
 StatItem.propTypes = {
     text: PropTypes.string,
-    value: PropTypes.string
+    value: PropTypes.number
 }
 
 export default StatItem

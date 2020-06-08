@@ -52,7 +52,7 @@ const BackLaneStat = props => {
 }
 
 BackLaneStat.propTypes = {
-    data: PropTypes.array
+    data: PropTypes.object
 }
 
 export default BackLaneStat

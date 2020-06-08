@@ -1,11 +1,8 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
-import ReactMapboxGl, { Layer, Feature, ZoomControl, Image } from 'react-mapbox-gl'
+import ReactMapboxGl, { Layer, Feature, ZoomControl } from 'react-mapbox-gl'
 import { getCenter } from 'geolib'
 import StyledPopup from './map-popup'
-import pinGreen from "../../images/pin-green.png"
-import pinBlue from "../../images/pin-light-blue.png"
-import pinYellow from "../../images/pin-yellow.png"
 
 let Map = false
 
@@ -34,6 +31,7 @@ const BackLaneMap = props => {
   const {backlanes} = props
 
   const handleClick = (backlane) => {
+    console.log(backlane.image)
     setBackLane(backlane)
     setCenter(backlane.frontmatter.geojson)
   }
@@ -67,69 +65,44 @@ const BackLaneMap = props => {
         setBackLane(null)
       }}
     >
-      <Image id='pin-green' url={pinGreen}/>
-      <Image id='pinBlue' url={pinBlue} />
-      <Image id='pinYellow' url={pinYellow} />
-
-      <Layer  type="symbol" layout={{
-        'icon-image': 'pinYellow',
-        'icon-size': 0.75,
-        'icon-allow-overlap': true
-        }}>
-          {/* Print warning backlanes */}
-        {backlanes
-          .map(e => e.node)
-          .filter(e => e.frontmatter.type == 'warning')
-          .map(blTransform)
-          .map(backlane => (
-          <Feature key={backlane.id}
-            coordinates={backlane.frontmatter.geojson}
-            onMouseEnter={(evt) => switchCursor(evt, true)}
-            onMouseLeave={(evt) => switchCursor(evt, false)}
-            onClick={() => handleClick(backlane)}
-            />
-        ))}
-      </Layer>
-
-      <Layer  type="symbol" layout={{
-        'icon-image': 'pin-green',
-        'icon-size': 0.75,
-        'icon-allow-overlap': true
-        }}>
-          {/* Print green backlanes */}
-        {backlanes
-          .map(e => e.node)
-          .filter(e => e.frontmatter.type == 'ruelle_verte')
-          .map(blTransform)
-          .map(backlane => (
-          <Feature key={backlane.id}
-            coordinates={backlane.frontmatter.geojson}
-            onMouseEnter={(evt) => switchCursor(evt, true)}
-            onMouseLeave={(evt) => switchCursor(evt, false)}
-            onClick={() => handleClick(backlane)}
-            />
-        ))}
-      </Layer>
-
-      <Layer  type="symbol" layout={{
-        'icon-image': 'pinBlue',
-        'icon-size': 0.75,
-        'icon-allow-overlap': true
-        }}>
-          {/* Print blue backlanes */}
-        {backlanes
-          .map(e => e.node)
-          .filter(e => e.frontmatter.type == 'ruelle')
-          .map(blTransform)
-          .map(backlane => (
-          <Feature key={backlane.id}
-            coordinates={backlane.frontmatter.geojson}
-            onMouseEnter={(evt) => switchCursor(evt, true)}
-            onMouseLeave={(evt) => switchCursor(evt, false)}
-            onClick={() => handleClick(backlane)}
-            />
-        ))}
-      </Layer>
+        <Layer type="circle" paint={{
+          'circle-radius': {
+            'type': 'identity',
+            'property': 'radius'
+          },
+          'circle-color': {
+            'type': 'identity',
+            'property': 'color'
+          },
+          'circle-stroke-width': 1,
+          'circle-blur': 0.2, 
+          'circle-stroke-color': {
+            'type': 'identity',
+            'property': 'border'
+          },
+          'circle-opacity': {
+            'type': 'identity',
+            'property': 'opacity'
+          }
+          }}>
+          {backlanes
+            .map(e => e.node)
+           // .filter(e => e.frontmatter.type == layer.filter)
+            .map(blTransform)
+            .map(backlane => (
+            <Feature key={backlane.id}
+              coordinates={backlane.frontmatter.geojson}
+              properties={{
+                color: backlane.frontmatter.type=='ruelle_verte'?'green':'blue',
+                radius: 10,
+                opacity: backlane.image.childImageSharp.fixed.src.includes('default.png')?0.6:1
+              }}
+              onMouseEnter={(evt) => switchCursor(evt, true)}
+              onMouseLeave={(evt) => switchCursor(evt, false)}
+              onClick={() => handleClick(backlane)}
+              />
+          ))}
+        </Layer>
 
       {/* handle popup */}
       {backlane && (

@@ -14,21 +14,6 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     }
   }
 
-// schema customisation to set image 
-// exports.createSchemaCustomization = ({ actions }) => {
-//   const { createTypes } = actions
-//   const typeDefs = `
-//     type MarkdownRemark implements Node {
-//       image: File!,
-//       frontmatter: Frontmatter
-//     }
-//     type Frontmatter {
-//       date: String!
-//     }
-//   `
-//   createTypes(typeDefs)
-// }
-
 exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions
   const typeDefs = [
