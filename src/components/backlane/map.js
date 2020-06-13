@@ -31,7 +31,6 @@ const BackLaneMap = props => {
   const {backlanes} = props
 
   const handleClick = (backlane) => {
-    console.log(backlane.image)
     setBackLane(backlane)
     setCenter(backlane.frontmatter.geojson)
   }
@@ -75,7 +74,7 @@ const BackLaneMap = props => {
             'property': 'color'
           },
           'circle-stroke-width': 1,
-          'circle-blur': 0.2, 
+          'circle-blur': 0.1, 
           'circle-stroke-color': {
             'type': 'identity',
             'property': 'border'
@@ -95,7 +94,7 @@ const BackLaneMap = props => {
               properties={{
                 color: backlane.frontmatter.type=='ruelle_verte'?'green':'blue',
                 radius: 10,
-                opacity: backlane.image.childImageSharp.fixed.src.includes('default.png')?0.6:1
+                opacity: backlane.fields.containImage?1:0.3
               }}
               onMouseEnter={(evt) => switchCursor(evt, true)}
               onMouseLeave={(evt) => switchCursor(evt, false)}

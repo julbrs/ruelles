@@ -49,13 +49,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `backlanes-images`,
-        path: `${__dirname}/content/backlanes-images`,
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -69,7 +62,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-slug`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
   ],

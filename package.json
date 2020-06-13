@@ -11,7 +11,6 @@
     "gatsby-plugin-postcss": "2.3.1",
     "gatsby-plugin-react-helmet": "3.3.1",
     "gatsby-plugin-sharp": "^2.6.3",
-    "gatsby-plugin-slug": "^1.0.1",
     "gatsby-remark-images": "^3.3.3",
     "gatsby-source-filesystem": "^2.3.3",
     "gatsby-transformer-remark": "^2.8.8",

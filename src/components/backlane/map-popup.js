@@ -11,7 +11,9 @@ const StyledPopup = (props) => {
         <Popup key={`popup-${backlane.id}`} coordinates={backlane.frontmatter.geojson}>
             <div className="w-48">
                 <Link to={backlane.fields.slug}>
-                    <Img fixed={backlane.image.childImageSharp.fixed} />
+                    {backlane.frontmatter.image && (
+                        <Img fixed={backlane.frontmatter.image.childImageSharp.fixed} />
+                    )}
                     <div className="px-2 py-2">
                         <div className="text-gray-700 font-bold text-sm">{backlane.frontmatter.title}</div>
                     </div>

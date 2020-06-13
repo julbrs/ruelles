@@ -1,3 +1,5 @@
+const { createFilePath } = require(`gatsby-source-filesystem`)
+
 // manage mapbox wierd production setup
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     if (stage === "build-html") {
@@ -14,13 +16,42 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     }
   }
 
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `content/backlanes` })
+    // compute slug
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+
+    // compute the contain Image field
+    createNodeField({
+      node,
+      name: `containImage`,
+      value: node.frontmatter.image !== undefined,
+    })
+
+    // compute star
+    // TODO
+  }
+}
+
 exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions
   const typeDefs = [
-    "type MarkdownRemark implements Node { image: File!,frontmatter: Frontmatter }",
+    `
+    type MarkdownRemark implements Node {
+      star: Float
+      image: File
+      frontmatter: Frontmatter
+    }`,
     schema.buildObjectType({
       name: "Frontmatter",
       fields: {
+        surface: "Int",
         date: {
           type: "String",
           resolve(source, args, context, info) {
@@ -40,21 +71,15 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 exports.createResolvers = ({ createResolvers }) => {
   const resolvers = {
     MarkdownRemark: {
-      image: {
+      star: {
+        // compute the number of stars !
         resolve(source, args, context, info) {
-          const parentNode = context.nodeModel.getNodeById({id: source.parent})
-          const fileName = parentNode.relativePath.replace(/\.[^/.]+$/, "")
-          let img = context.nodeModel
-            .getAllNodes({ type: "File" })
-            .find(file => file.extension !== 'md' && file.relativePath.startsWith(fileName))
+          let star = undefined
 
-          // no image found let's use the default one
-          if(img === undefined ) {
-            img = context.nodeModel
-              .getAllNodes({ type: "File" })
-              .find(file => file.base === 'default.png')
+          if(source.frontmatter.surface === 'soft') {
+            star = 2
           }
-          return img
+          return star;
         },
       },
     },

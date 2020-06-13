@@ -33,15 +33,9 @@ export const indexQuery = graphql`
       edges {
         node {
           id
-          image {
-            childImageSharp {
-              fixed(width: 192, height: 128) {
-                ...GatsbyImageSharpFixed
-              }
-            } 
-          }
           fields {
             slug
+            containImage
           }
           frontmatter {
             date
@@ -54,6 +48,13 @@ export const indexQuery = graphql`
             position {
               lat
               lng
+            }
+            image {
+              childImageSharp {
+                fixed(width: 192, height: 128) {
+                  ...GatsbyImageSharpFixed
+                }
+              } 
             }
           }
         }
@@ -76,7 +77,7 @@ export const indexQuery = graphql`
     warning:allMarkdownRemark(filter: {frontmatter: {type: {eq: "warning"}}}) {
       totalCount
     }
-    nopic:allMarkdownRemark(filter: {image: {base: {eq: "default.png"}}}) {
+    nopic:allMarkdownRemark(filter: {frontmatter: {image: {base: {eq: "default.png"}}}}) {
       totalCount
     }
     nodate:allMarkdownRemark(filter: {frontmatter: {date: {eq: "?"}}}) {
