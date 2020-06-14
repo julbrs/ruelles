@@ -9,3 +9,4 @@ image: ./main.jpeg
 
 Ruelle issue présumément du programme **Place au soleil** (source [ici](http://archivesdemontreal.com/2014/10/06/chronique-montrealite-no-15-breve-histoire-des-ruelles-de-montreal/))entrepris par la Ville de Montréal entre 1981 et 1986, mais n'a pas été retenu par l'arrondissement comme _ruelle verte_ lors du programme en 2009/2010 (source [ici](http://ville.montreal.qc.ca/pls/portal/docs/PAGE/ARROND_RPP_FR/MEDIA/DOCUMENTS/DOCUMENT7.PDF))
 
+![](./12185538_899802286763691_584715983062059101_o.jpg "Crédit Arrondissement de Rosemont - La Petite-Patrie")

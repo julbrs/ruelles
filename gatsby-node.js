@@ -35,7 +35,27 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     })
 
     // compute star
-    // TODO
+    const {
+      entretien,
+      surface,
+      art,
+      vegetal
+    } = node.frontmatter
+    if(entretien !== undefined && surface !== undefined && art !== undefined && vegetal !== undefined) {
+      let star = 0
+      // 0, 1 or 2 for each item
+      star += entretien * 2
+      star += surface * 3
+      star += art * 1
+      star += vegetal * 2
+      star = star / 16 * 5
+
+      createNodeField({
+        node,
+        name: `star`,
+        value: star,
+      })
+    }
   }
 }
 

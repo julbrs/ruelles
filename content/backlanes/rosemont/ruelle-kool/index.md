@@ -17,6 +17,10 @@ _Visitée le 2020-06-02_
 
 ![](./kool-cafe.jpg "A l'époque du Kool Café, photo Facebook 'Les anciens du KOOL CAFE'")
 
+![](./403465_382972911779967_984151248_n.jpg "Crédit Arrondissement de Rosemont - La Petite-Patrie")
+
+![](./527306_382972968446628_1639381191_n.jpg "Crédit Arrondissement de Rosemont - La Petite-Patrie")
+
 
 Revue de presse:
 * [Une ruelle verte et « kool », Journal Métro, 16 avril 2012](https://journalmetro.com/actualites-rosemont-la-petite-patrie/639094/une-ruelle-verte-et-kool/)

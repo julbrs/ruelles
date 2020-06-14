@@ -44,3 +44,7 @@ TODO
 - mettre en avant certaines ruelles basé sur la notation
 - mettre en avant les ruelles sans photos
 - ameliorer la carte
+
+Photographies
+- Personnelles si pas d'indication
+- de FB Rosemont Petite Patrie (Albums Ruelles vertes - 84 items, Ruelles de 2012, Ruelles de 2011)

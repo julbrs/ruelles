@@ -19,8 +19,12 @@ const BackLaneTemplate = ({data}) => {
       />
       <article className="max-w-4xl py-4 mx-auto md:px-4 md:py-8">
         {frontmatter.image && (
-          <Img className="h-48 mb-8" fluid={frontmatter.image.childImageSharp.fluid} />
+          <Img className="w-full" fixed={frontmatter.image.childImageSharp.fixed} />
+          
         )}
+        {frontmatter.credit && (
+            <p className="text-center bg-gray-100 italic py-5 px-10">Crédit photo: <a target="_blank" rel="noopener noreferrer" className="font-bold text-green-900" href={frontmatter.creditlink}>{frontmatter.credit}</a></p>
+          )}
         {/* <div className="grid md:grid-cols-2 gap-4">
           
           <ul className="flex   flex-col p-4">
@@ -77,11 +81,13 @@ export const pageQuery = graphql`
         art
         image {
           childImageSharp {
-            fluid(maxWidth: 1280, quality: 100) {
-              ...GatsbyImageSharpFluid
+            fixed(width: 1024, height: 500, quality: 100) {
+              ...GatsbyImageSharpFixed
             }
           } 
         }
+        credit
+        creditlink
       }
     }
   }
