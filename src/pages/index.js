@@ -77,7 +77,7 @@ export const indexQuery = graphql`
     warning:allMarkdownRemark(filter: {frontmatter: {type: {eq: "warning"}}}) {
       totalCount
     }
-    nopic:allMarkdownRemark(filter: {frontmatter: {image: {base: {eq: "default.png"}}}}) {
+    nopic:allMarkdownRemark(filter: {fields: {containImage: {eq: false}}}) {
       totalCount
     }
     nodate:allMarkdownRemark(filter: {frontmatter: {date: {eq: "?"}}}) {

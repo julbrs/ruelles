@@ -23,11 +23,11 @@ J'ai utilisé les sources génériques ci-dessous
 
 Puis ensuite j'ai trouvé des documents précis dans certains arrondissements:
 
-Rosemont par année:
+## Rosemont par année:
 - [avant 2011](http://ville.montreal.qc.ca/pls/portal/docs/PAGE/ARROND_RPP_FR/MEDIA/DOCUMENTS/DOCUMENT7.PDF) pas de sources trouvées, on s'appuie sur les documents pdf de 2017 à 2019. 7 ruelles
 - **2011** pas de sources trouvées, on s'appuie sur les documents pdf de 2017 à 2019. 12 nouvelles ruelles.
 - [2012](https://ville.montreal.qc.ca/pls/portal/docs/PAGE/ARROND_RPP_FR/MEDIA/DOCUMENTS/Automne_2012.pdf) 10 nouvelles ruelles
-- **2013** pas de sources trouvées, on s'appuie sur les documents pdf de 2017 à 2019. 16 nouvelles ruelles, plus un bloc st laurent mozart casgrain a vérifier sur place (4 ruelles vertes ici ?) 
+- **2013** pas de sources trouvées, on s'appuie sur les documents pdf de 2017 à 2019. 20 nouvelles ruelles.
 - **2014** pas de sources trouvées, on s'appuie sur les documents pdf de 2017 à 2019. 16 nouvelles ruelles.
 - [2015](http://ville.montreal.qc.ca/portal/page?_pageid=7357,77139652&_dad=portal&_schema=PORTAL&id=24592) 15 nouvelles ruelles + 'des Écores - Louis-Hébert - Rosemont - des Carrières' (pas dans l'annonce mais annoncé comme 2015 dans les pdf des années 2017 à 2019)
 - [2016](http://ville.montreal.qc.ca/portal/page?_pageid=7357,77137603&_dad=portal&_schema=PORTAL&id=14216&ret=/pls/portal/url/page/arrond_rpp_fr/rep_annonces/rep_actualites/coll_actualites) 15 nouvelles ruelles, lien vers une carte.
@@ -37,7 +37,7 @@ Rosemont par année:
 - [2020](https://montreal.ca/actualites/cinq-nouvelles-ruelles-vertes-dans-le-quartier), 5 nouvelles ruelles, lien vers une carte sans année.
 
 
-TODO
+## TODO
 - proposer des itinéraires https://fairemtl.ca/fr/parcours-ruelles-vertes-actives/content/deux-rallyes-decouvertes-dans-le-sud-ouest
 - améliorer la fiche ruelle
 - ajouter un système de notation des ruelles
@@ -45,6 +45,6 @@ TODO
 - mettre en avant les ruelles sans photos
 - ameliorer la carte
 
-Photographies
+## Photographies
 - Personnelles si pas d'indication
-- de FB Rosemont Petite Patrie (Albums Ruelles vertes - 84 items, Ruelles de 2012, Ruelles de 2011)
+- de FB Rosemont Petite Patrie (Albums Ruelles vertes - 84 items, Ruelles de 2012, Ruelles de 2011) sur autorisation

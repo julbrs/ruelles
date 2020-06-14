@@ -31,6 +31,7 @@ const BackLaneStat = props => {
           key={district.fieldValue} 
           value={district.totalCount} 
           text={district.fieldValue}
+          link={`/district/${district.fieldValue}`}
         />
       ))}
       </div>

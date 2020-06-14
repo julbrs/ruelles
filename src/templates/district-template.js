@@ -7,21 +7,22 @@ import Layout from '../layouts/layout'
 import SEO from '../components/seo'
 import BackLaneList from '../components/backlane/list'
 
-const DistrictTemplate = ({data}) => {
+const DistrictTemplate = ({data}, district) => {
   const { 
     allMarkdownRemark: {
       totalCount,
       group
     }
   } = data
+  console.log(district)
 
   return (
     <Layout>
       <SEO
-        title="Liste des ruelles vertes de Rosemont"
+        title={`Liste des ruelles vertes de ${district}`}
       />
       <article className="max-w-6xl py-4 mx-auto md:px-4 md:py-8">
-      <h1>Liste des <strong>{totalCount}</strong> ruelles vertes de Rosemont</h1>
+      <h1>Liste des <strong>{totalCount}</strong> ruelles vertes de xxx</h1>
       {group
         .map(date => (
           <div key={date.fieldValue}>
