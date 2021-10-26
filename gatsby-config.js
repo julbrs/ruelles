@@ -7,10 +7,10 @@ module.exports = {
   siteMetadata: {
     title: `Ruelles`,
     description: `La liste des ruelles de Montréal`,
-    author: `@sidoineorg`,
+    author: `@_julbrs`,
     social: {
-      github: 'https://github.com/bobman38/ruelles'
-    }
+      github: "https://github.com/bobman38/ruelles",
+    },
   },
   plugins: [
     `gatsby-plugin-eslint`,
@@ -33,9 +33,7 @@ module.exports = {
         postCssPlugins: [
           require(`tailwindcss`)(tailwindConfig),
           require(`autoprefixer`),
-          ...(process.env.NODE_ENV === `production`
-            ? [require(`cssnano`)]
-            : []),
+          ...(process.env.NODE_ENV === `production` ? [require(`cssnano`)] : []),
         ],
       },
     },
@@ -56,7 +54,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 620,
-              showCaptions: true
+              showCaptions: true,
             },
           },
         ],
@@ -64,5 +62,11 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-intercom`,
+      options: {
+        appId: "yu6zrqlq",
+      },
+    },
   ],
 };
