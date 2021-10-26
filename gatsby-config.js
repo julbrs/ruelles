@@ -9,7 +9,7 @@ module.exports = {
     description: `La liste des ruelles de Montréal`,
     author: `@_julbrs`,
     social: {
-      github: "https://github.com/bobman38/ruelles",
+      github: "https://github.com/julbrs/ruelles",
     },
   },
   plugins: [
